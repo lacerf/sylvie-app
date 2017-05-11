@@ -1,5 +1,5 @@
 class TicketsController < ApplicationController
-  before_action :set_ticket, only: [:show, :edit, :update]
+  before_action :set_ticket, only: [:show, :edit, :update, :destroy]
 	def index
 		@tickets = Ticket.all
 	end
@@ -26,14 +26,19 @@ class TicketsController < ApplicationController
 	def update
 		#authorize @ticket
 		
-		if @ticket.update(post_params)
-			redirect_to @post, notice: 'Your ticket was edited successfully'
+		if @ticket.update(ticket_params)
+			redirect_to @ticket, notice: 'Your ticket was edited successfully'
 		else
 			render :edit
 		end
 	end
 
 	def show
+	end
+	
+	def destroy
+		@ticket.delete
+		redirect_to tickets_path, notice: 'Your ticket was deleted successfully'
 	end
 
 	private

@@ -26,4 +26,7 @@
 	<td>
 		<%= link_to 'Edit', edit_ticket_path(ticket), id: "edit_#{ticket.id}" %>
 	</td>
+	<td>
+		<%= link_to 'Delete', ticket_path(ticket), method: :delete, id: "delete_#{ticket.id}", data: { confirm: 'Are you sure?' } %>
+	</td>
 </tr>
