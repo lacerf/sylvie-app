@@ -30,6 +30,6 @@
 		</tr>
 	</thead>
 	<tbody>
-		<%= render @tickets %>
+		<%= render @tickets.order(:due_date, :priority) %>
 	</tbody>
 </table>
