@@ -25,6 +25,10 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
-
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
+gem 'devise-bootstrap-views'

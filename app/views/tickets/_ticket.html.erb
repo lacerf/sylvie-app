@@ -1,0 +1,29 @@
+<tr class = "<%= ticket.row_class(ticket.state, ticket.priority) %>">
+	<td>
+		<%= ticket.id %>
+	</td>
+	<td>
+		<%= ticket.title %>
+	</td>
+	<td>
+	  <%= ticket.owner_name(ticket.user_id) %>
+	</td>
+	<td>
+		<%= ticket.state %>
+	</td>
+	<td>
+		<%= ticket.priority %>
+	</td>
+	<td>
+		<%= ticket.due_date %>
+	</td>
+	<td>
+		<%= ticket.complete_date %>
+	</td>
+	<td>
+		<%= link_to 'View', ticket_path(ticket), id: "view_#{ticket.id}" %>
+	</td>
+	<td>
+		<%= link_to 'Edit', edit_ticket_path(ticket), id: "edit_#{ticket.id}" %>
+	</td>
+</tr>

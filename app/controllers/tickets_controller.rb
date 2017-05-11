@@ -1,6 +1,7 @@
 class TicketsController < ApplicationController
-  before_action :set_ticket, only: [:show]
+  before_action :set_ticket, only: [:show, :edit, :update]
 	def index
+		@tickets = Ticket.all
 	end
 
 	def new
@@ -15,6 +16,20 @@ class TicketsController < ApplicationController
 			redirect_to @ticket, notice: 'Your ticket was created successfully'
 		else
 			render :new
+		end
+	end
+	
+	def edit
+		#authorize @ticket
+	end
+
+	def update
+		#authorize @ticket
+		
+		if @ticket.update(post_params)
+			redirect_to @post, notice: 'Your ticket was edited successfully'
+		else
+			render :edit
 		end
 	end
 

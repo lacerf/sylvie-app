@@ -1,0 +1,24 @@
+<div class="navbar navbar-default navbar-static-top ">
+  <div class="container">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <span>
+      <%= link_to ("<i class='fa fa-rocket'></i> " +'Sylvie').html_safe, root_path, 
+                                                                            class: "navbar-brand" %>
+    </span>
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "All Tickets", tickets_path  %></li>
+        <li><%= link_to "New Ticket", new_ticket_path  %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+      <li>
+        <%= link_to ("<i class='fa fa-sign-out'></i> " +'Logout').html_safe, destroy_user_session_path, method: :delete %>
+      </li>
+    </ul>
+    </div>
+  </div>
+</div>
