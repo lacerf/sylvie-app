@@ -1,4 +1,4 @@
-<tr class = "<%= ticket.row_class(ticket.state, ticket.priority) %>">
+<tr class = "<%= ticket.row_class_warning(ticket.due_date, ticket.state) %>">
 	<td>
 		<%= ticket.id %>
 	</td>
@@ -21,12 +21,12 @@
 		<%= ticket.complete_date %>
 	</td>
 	<td>
-		<%= link_to 'View', ticket_path(ticket), id: "view_#{ticket.id}" %>
+		<%= link_to 'View', ticket_path(ticket), id: "view_#{ticket.id}", class: 'btn btn-xs btn-primary' %>
 	</td>
 	<td>
-		<%= link_to 'Edit', edit_ticket_path(ticket), id: "edit_#{ticket.id}" %>
+		<%= link_to 'Edit', edit_ticket_path(ticket), id: "edit_#{ticket.id}", class: 'btn btn-xs btn-primary' %>
 	</td>
 	<td>
-		<%= link_to 'Delete', ticket_path(ticket), method: :delete, id: "delete_#{ticket.id}", data: { confirm: 'Are you sure?' } %>
+		<%= link_to 'Delete', ticket_path(ticket), method: :delete, class: 'btn btn-xs btn-danger', id: "delete_#{ticket.id}", data: { confirm: 'Are you sure?' } %>
 	</td>
 </tr>

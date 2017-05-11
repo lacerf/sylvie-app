@@ -14,6 +14,12 @@ class Ticket < ActiveRecord::Base
     return t_state == 'Completed' ? 'success' : row_priority(t_priority)
   end
   
+  def row_class_warning(t_due_date, t_state)
+    return 'success' if t_state == 'Completed'
+    return 'danger' if (Date.today) > t_due_date
+    return 'warning' if (Date.today + 2) > t_due_date
+  end
+  
   def owner_name(ticket_uid)
     if ticket_uid
       usr = User.find(ticket_uid)

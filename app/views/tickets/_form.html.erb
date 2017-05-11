@@ -1,11 +1,25 @@
-<%= form_for @ticket do |f| %>
+<%= form_for @ticket, class: "form-horizontal" do |f| %>
 
-  <%= f.text_field :title %>
-  <%= f.text_area :details %>
-  <%= f.date_field :start_date %>
+  <div class="form-group">
+  	<%= f.label :title, class: "col-sm-2 control-label" %>	
+  	<%= f.text_field :title, class: "form-control" %>	
+  </div>
   
+   <div class="form-group">
+  	<%= f.label :start_date, class: "col-sm-2 control-label" %>	
+  	<%= f.date_field :start_date, class: "form-control" %>	
+  </div>
   
+  <div class="form-group">
+  	<%= f.label :due_date, class: "col-sm-2 control-label" %>	
+  	<%= f.date_field :due_date, class: "form-control" %>	
+  </div>
+
+  <div class="form-group">
+  	<%= f.label :details, class: "col-sm-2 control-label" %>	
+  	<%= f.text_area :details, class: "form-control" %>	
+  </div>
   
-  <%= f.submit 'Save' %>
+  <%= f.submit 'Save', class: 'btn btn-primary' %>
 
 <% end %>
