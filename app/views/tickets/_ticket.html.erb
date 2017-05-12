@@ -12,7 +12,7 @@
 		<%= ticket.state %>
 	</td>
 	<td>
-		<%= ticket.priority %>
+		<%= priority_label ticket.priority %>
 	</td>
 	<td>
 		<%= ticket.due_date %>
@@ -21,12 +21,12 @@
 		<%= ticket.complete_date %>
 	</td>
 	<td>
-		<%= link_to 'View', ticket_path(ticket), id: "view_#{ticket.id}", class: 'btn btn-xs btn-primary' %>
+		<%= link_to 'View', ticket_path(ticket), id: "view_#{ticket.id}", class: 'btn btn-xs btn-default' %>
 	</td>
 	<td>
-		<%= link_to 'Edit', edit_ticket_path(ticket), id: "edit_#{ticket.id}", class: 'btn btn-xs btn-primary' %>
+		<%= link_to 'Edit', edit_ticket_path(ticket), id: "edit_#{ticket.id}", class: 'btn btn-xs btn-default' %>
 	</td>
 	<td>
-		<%= link_to 'Delete', ticket_path(ticket), method: :delete, class: 'btn btn-xs btn-danger', id: "delete_#{ticket.id}", data: { confirm: 'Are you sure?' } %>
+		<%= link_to 'Delete', ticket_path(ticket), method: :delete, class: 'btn btn-xs btn-default', id: "delete_#{ticket.id}", data: { confirm: 'Are you sure?' } %>
 	</td>
 </tr>

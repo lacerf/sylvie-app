@@ -19,3 +19,4 @@ tickets.each do |ticket|
 		ticket.update!(complete_date: Date.today)
 	end
 end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
