@@ -1,0 +1,31 @@
+<% close_to_due_date.each do |close_to_due_date| %>
+
+    
+
+<tr class = "<%= close_to_due_date.row_class_warning(close_to_due_date.due_date, close_to_due_date.state) %>">
+	<td>
+		<%= close_to_due_date.id %>
+	</td>
+	<td>
+		<%= close_to_due_date.title %>
+	</td>
+	<td>
+	  <%= close_to_due_date.owner_name(close_to_due_date.user_id) %>
+	</td>
+	<td>
+		<%= close_to_due_date.state %>
+	</td>
+	<td>
+		<%= priority_label close_to_due_date.priority %>
+	</td>
+	<td>
+		<%= close_to_due_date.due_date %>
+	</td>
+	<td>
+		<%= close_to_due_date.complete_date %>
+	</td>
+	<td>
+		<%= link_to 'View', ticket_path(close_to_due_date), id: "view_#{close_to_due_date.id}", class: 'btn btn-xs btn-default' %>
+	</td>
+</tr>
+<% end %>

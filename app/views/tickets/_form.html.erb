@@ -2,15 +2,15 @@
 <div class="container-fluid">
   
   <div class="row">
-		<div class="col-md-12">
+		<div class="col-md-12 fsl-border">
 		  <div class="form-group">
       	<%= f.label :title, class: "col-sm-2 control-label" %>	
       	<%= f.text_field :title, class: "form-control" %>	
       </div>
 		</div>
   </div>
-  
-  <div class="row">
+  <div class="fsl-divider"></div>
+  <div class="row fsl-border" >
 		<div class="col-md-4">
 		  <div class="form-group">
       	<%= f.label :start_date, class: "col-sm-2 control-label" %>	
@@ -35,47 +35,55 @@
 		</div>
   </div>
   
-  <div class="row">
-		<div class="col-md-12">
-		  <div class="form-group">
-      	<%= f.label :priority, class: "col-sm-2 control-label" %>	
-      	<%= f.select :priority, ['Critical', 'High', 'Moderate', 'Low', 'Trivial']%>
-      </div>
-		</div>
+  <div class="fsl-divider"></div>
+  
+  <div class="fsl-border">
+    <div class="row">
+  		<div class="col-md-12">
+  		  <div class="form-group">
+        	<%= f.label :priority, class: "col-sm-2 control-label" %>	
+        	<%= f.select :priority, ['Critical', 'High', 'Moderate', 'Low', 'Trivial']%>
+        </div>
+  		</div>
+    </div>
+    
+    <div class="row">
+  		<div class="col-md-12">
+  		  <div class="form-group">
+        	<%= f.label :state, class: "col-sm-2 control-label" %>	
+        	<% if @ticket.new_record? %>
+            <%= f.hidden_field :state, value: 'To Do' %>
+            <i>New</i>
+          <% else %>
+            <%= state_label @ticket.state %>
+          <% end %>
+        </div>
+  		</div>
+    </div>
   </div>
   
-  <div class="row">
-		<div class="col-md-12">
-		  <div class="form-group">
-      	<%= f.label :state, class: "col-sm-2 control-label" %>	
-      	<% if @ticket.new_record? %>
-          <%= f.hidden_field :state, value: 'Submitted' %>
-          <i>New</i>
-        <% else %>
-          <%= state_label @ticket.state %>
-        <% end %>
-      </div>
-		</div>
-  </div>
+  <div class="fsl-divider"></div>
   
-  <div class="row">
+  <div class="row fsl-border">
 		<div class="col-md-6">
 		  <div class="form-group">
-		    <b>Submitted by: </b><br />will implement soon
+		    <b>Submitted by </b><br />will implement soon
       	<%#= f.label :priority, class: "col-sm-2 control-label" %>	
       	<%#= f.select :priority, ['Critical', 'High', 'Moderate', 'Low', 'Trivial']%>
       </div>
 		</div>
 		<div class="col-md-6">
 		  <div class="form-group">
-		    <b>Assigned to: </b><br />will implement soon
+		    <b>Assigned to </b><br />will implement soon
       	<%#= f.label :priority, class: "col-sm-2 control-label" %>	
       	<%#= f.select :priority, ['Critical', 'High', 'Moderate', 'Low', 'Trivial']%>
       </div>
 		</div>
   </div>
   
-  <div class="row">
+  <div class="fsl-divider"></div>
+  
+  <div class="row fsl-border">
 		<div class="col-md-12">
       <div class="form-group">
       	<%= f.label :details, class: "col-sm-2 control-label" %>	
@@ -83,6 +91,8 @@
       </div>
     </div>
   </div>
+  
+  <div class="fsl-divider"></div>
   
   <div class="row">
   	<div class="col-md-12">

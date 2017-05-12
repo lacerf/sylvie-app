@@ -1,1 +1,32 @@
-<%= @ticket.inspect %>
+<div>
+	<h2><%= @ticket.title %></h2>
+</div>
+
+<div class="well">
+	<div>
+		<h3><span><strong>Description:</strong></span> <%= @ticket.details %></h3>
+	</div>
+	
+	<div>
+		<h3><span><strong>Priority:</strong></span> <%= priority_label @ticket.priority %></h3>
+	</div>
+
+	<div>
+		<h3><span><strong>Assigned to:</strong></span> <%= @ticket.user.full_name %></h3>
+	</div>
+
+	<div>
+		<h3><span><strong>Due Date:</strong></span> <%= @ticket.due_date %></h3>
+	</div>
+	
+	<div>
+		<h3><span><strong>Completed on:</strong></span> <%= @ticket.complete_date %></h3>
+	</div>
+
+	<div>
+		<h3><span><strong>Current Stage of Approval:</strong></span> <%= state_label @ticket.state %></h3>
+	</div>
+</div>
+<h3>Available Actions:</h3>
+<%= link_to 'Edit', edit_ticket_path(@ticket), class: 'btn btn-xs btn-primary' %> | 
+<%= link_to 'Delete', ticket_path(@ticket), method: :delete, class: 'btn btn-xs btn-danger', id: "delete_#{@ticket.id}", data: { confirm: 'Are you sure?' } %>

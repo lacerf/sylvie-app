@@ -1,1 +1,132 @@
-<h1>Welcome to Sylvie App</h1>
+<div class='container-fluid'>
+	<div class='pending-homepage row'>
+		<h2>Scrum Dashboard</h2>
+		<hr>
+		<div class='container-fluid'>
+	    <div class='pending-homepage row'>
+	      <div class='homepage-block col-md-4'>
+	        <h3>To Do:</h3>
+	        
+	        <div class="jumbotron bg-danger">
+            <ul>
+              <% @in_todo.each do |t| %>
+                <li><%= t.title %></li>
+              <% end %>
+            </ul>
+          </div>
+	        
+	       </div>
+	       <div class='homepage-block col-md-4'>
+	        <h3>Doing:</h3>
+	        
+	        <div class="jumbotron bg-warning">
+            <ul>
+              <% @in_doing.each do |d| %>
+                <li><%= d.title %></li>
+              <% end %>
+            </ul>
+          </div>
+	        
+	       </div>
+	       <div class='homepage-block col-md-4'>
+	        <h3>Complete:</h3>
+	        
+	        <div class="jumbotron bg-success">
+            <ul>
+              <% @in_complete.each do |c| %>
+                <li><%= c.title %></li>
+              <% end %>
+            </ul>
+          </div>
+	        
+	       </div>
+		  </div>
+		</div>
+	</div>
+
+	<div class='pending-homepage row'>
+		<h2>Overdue</h2>
+		<hr>
+		<table class="table table-hover">
+    	<thead>
+    		<tr>
+    			<th>
+    				#
+    			</th>
+    			<th>
+    				Title
+    			</th>
+    			<th>
+    			  Owner
+    			</th>
+    			<th>
+    				State
+    			</th>
+    			<th>
+    				Priority
+    			</th>
+    			<th>
+    				Due Date
+    			</th>
+    			<th>
+    				Date Completed
+    			</th>
+    			<th></th>
+    		</tr>
+    	</thead>
+    	<tbody>
+    	  <%= render partial: 'overdue', locals: { overdue: @overdue_tickets } %>
+	    </tbody>
+    </table>
+
+		<div class='clearfix'></div>
+
+		<hr>
+
+	</div>
+	
+	<div class='pending-homepage row'>
+		<h2>Approaching Deadline</h2>
+		<hr>
+		
+		<table class="table table-hover">
+    	<thead>
+    		<tr>
+    			<th>
+    				#
+    			</th>
+    			<th>
+    				Title
+    			</th>
+    			<th>
+    			  Owner
+    			</th>
+    			<th>
+    				State
+    			</th>
+    			<th>
+    				Priority
+    			</th>
+    			<th>
+    				Due Date
+    			</th>
+    			<th>
+    				Date Completed
+    			</th>
+    			<th></th>
+    		</tr>
+    	</thead>
+    	<tbody>
+    	  <%= render partial: 'close_to_due_date', locals: { close_to_due_date: @close_to_due_date } %>
+	    </tbody>
+    </table>
+		
+
+		<div class='clearfix'></div>
+
+		<hr>
+
+		<%= link_to 'View All Tickets', tickets_path, class: 'btn btn-primary' %>
+	</div>
+	
+</div>

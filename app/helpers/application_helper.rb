@@ -31,18 +31,11 @@ module ApplicationHelper
 	
 	def state_span_generator state
 		case state
-		when 'Submitted'
-			content_tag(:span, state.titleize, class: 'label label-primary')
-		when 'Waiting Review'
-			content_tag(:span, state.titleize, class: 'label label-primary')
-		when 'Executing'
-			content_tag(:span, state.titleize, class: 'label label-primary')
-		when 'Waiting Review'
-		when 'Reviewing'
-			content_tag(:span, state.titleize, class: 'label label-primary')
-		when 'Rejected'
+		when 'To Do'
 			content_tag(:span, state.titleize, class: 'label label-danger')
-		when 'Completed'
+		when 'Doing'
+			content_tag(:span, state.titleize, class: 'label label-primary')
+		when 'Complete'
 			content_tag(:span, state.titleize, class: 'label label-success')
 		end
 	end

@@ -1,6 +1,5 @@
 class Ticket < ActiveRecord::Base
-  enum state: { 'Submitted': 0, 'Executing': 1, 'Waiting Review': 2, 
-                'Reviewing': 3, 'Rejected': 4, 'Completed': 5 }
+  enum state: { 'To Do': 0, 'Doing': 1, 'Complete': 2 }
   enum priority: { 'Critical': 0, 'High': 1, 'Moderate': 2, 'Low': 3, 'Trivial': 4 }
   belongs_to :user
   validates_presence_of :title, :details
@@ -11,13 +10,13 @@ class Ticket < ActiveRecord::Base
   end
   
   def row_class(t_state, t_priority)
-    return t_state == 'Completed' ? 'success' : row_priority(t_priority)
+    return t_state == 'Complete' ? 'success' : row_priority(t_priority)
   end
   
   def row_class_warning(t_due_date, t_state)
-    return 'success' if t_state == 'Completed'
+    return 'success' if t_state == 'Complete'
     return 'danger' if (Date.today) > t_due_date
-    return 'warning' if (Date.today + 2) > t_due_date
+    return 'warning' if (Date.today + 2) >= t_due_date
   end
   
   def owner_name(ticket_uid)

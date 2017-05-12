@@ -1,3 +1,7 @@
+<% overdue.each do |ticket| %>
+
+    
+
 <tr class = "<%= ticket.row_class_warning(ticket.due_date, ticket.state) %>">
 	<td>
 		<%= ticket.id %>
@@ -24,3 +28,4 @@
 		<%= link_to 'View', ticket_path(ticket), id: "view_#{ticket.id}", class: 'btn btn-xs btn-default' %>
 	</td>
 </tr>
+<% end %>
