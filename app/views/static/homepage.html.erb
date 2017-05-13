@@ -7,36 +7,48 @@
 	      <div class='homepage-block col-md-4'>
 	        <h3>To Do:</h3>
 	        
-	        <div class="jumbotron bg-danger">
-            <ul>
-              <% @in_todo.each do |t| %>
-                <li><%= t.title %></li>
-              <% end %>
-            </ul>
+	        <div class="scrum-to-do">
+	        	<table class="table table-hover">
+				    	<thead>
+				    		<%= render 'scrum_heading' %>
+				    	</thead>
+				    	<tbody>
+				    	  <%= render partial: 'scrum', locals: { tickets: @in_todo } %>
+					    </tbody>
+				    </table>
+	        	<%= link_to 'More', tickets_path, class: 'btn btn-primary' %>
           </div>
 	        
 	       </div>
 	       <div class='homepage-block col-md-4'>
 	        <h3>Doing:</h3>
 	        
-	        <div class="jumbotron bg-warning">
-            <ul>
-              <% @in_doing.each do |d| %>
-                <li><%= d.title %></li>
-              <% end %>
-            </ul>
+	        <div class="scrum-doing">
+            <table class="table table-hover">
+				    	<thead>
+				    		<%= render 'scrum_heading' %>
+				    	</thead>
+				    	<tbody>
+				    	  <%= render partial: 'scrum', locals: { tickets: @in_doing } %>
+					    </tbody>
+				    </table>
+	        	<%= link_to 'More', tickets_path, class: 'btn btn-primary' %>
           </div>
 	        
 	       </div>
 	       <div class='homepage-block col-md-4'>
-	        <h3>Complete:</h3>
+	        <h3>Done:</h3>
 	        
-	        <div class="jumbotron bg-success">
-            <ul>
-              <% @in_complete.each do |c| %>
-                <li><%= c.title %></li>
-              <% end %>
-            </ul>
+	        <div class="scrum-complete">
+            <table class="table table-hover">
+				    	<thead>
+				    		<%= render 'scrum_heading' %>
+				    	</thead>
+				    	<tbody>
+				    	  <%= render partial: 'scrum', locals: { tickets: @in_complete } %>
+					    </tbody>
+				    </table>
+	        	<%= link_to 'More', tickets_path, class: 'btn btn-primary' %>
           </div>
 	        
 	       </div>
@@ -130,3 +142,4 @@
 	</div>
 	
 </div>
+<p>&nbsp;</p>

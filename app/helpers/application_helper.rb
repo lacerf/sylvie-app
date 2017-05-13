@@ -35,7 +35,7 @@ module ApplicationHelper
 			content_tag(:span, state.titleize, class: 'label label-danger')
 		when 'Doing'
 			content_tag(:span, state.titleize, class: 'label label-primary')
-		when 'Complete'
+		when 'Done'
 			content_tag(:span, state.titleize, class: 'label label-success')
 		end
 	end

@@ -1,8 +1,8 @@
 class StaticController < ApplicationController
   def homepage
-    @in_todo = Ticket.where(state: 0)
-    @in_doing = Ticket.where(state: 1)
-    @in_complete = Ticket.where(state: 2)
+    @in_todo = Ticket.where(state: 0).limit(5)
+    @in_doing = Ticket.where(state: 1).limit(5)
+    @in_complete = Ticket.where(state: 2).limit(5)
     
     first_date = Date.today
     second_date = Date.today + 2
